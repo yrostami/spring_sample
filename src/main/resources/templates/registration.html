@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>ثبت نام</title>
+    <link rel="stylesheet" href="/css/normalize.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+    <script type="text/javascript">
+        function formSubmit() {
+            if(document.getElementById('password').value == document.getElementById('password-confirm').value){
+                return true;
+            }
+            document.getElementById('password-confirm-error').innerText = 'گذرواژه با تکرار گذرواژه برابر نیست.';
+            return false;
+        }
+    </script>
+</head>
+<body>
+
+<div id="form-container">
+    <form action="#" th:action="@{/register}" th:object="${registrationForm}" method="post"
+    onsubmit="return formSubmit();">
+        <h3>ثبت نام</h3>
+        <div class="error" th:if="${#fields.hasErrors()}">
+            لطفا موارد خواسته شده را به طور صحیح وارد کنید.
+        </div>
+
+        <div class="form-entry">
+            <input class="text-input" type="text" th:field="*{username}" name="username" placeholder="نام کاربری" required autofocus >
+            <div th:if="${#fields.hasErrors('username')}" >
+                <span class="error" th:each="err : ${#fields.errors('username')}" th:text="${err}"></span>
+            </div>
+        </div>
+
+        <div class="form-entry">
+            <input class="text-input" type="email" name="email" th:field="*{email}" placeholder="ایمیل" required >
+            <div th:if="${#fields.hasErrors('email')}" >
+                <span class="error" th:each="err : ${#fields.errors('email')}" th:text="${err}"></span>
+            </div>
+        </div>
+
+        <div class="form-entry">
+            <input id="password" class="text-input" type="password" name="password" th:field="*{password}" placeholder="گذرواژه" required >
+            <div th:if="${#fields.hasErrors('password')}" >
+                <span class="error" th:each="err : ${#fields.errors('password')}" th:text="${err}"></span>
+            </div>
+        </div>
+
+        <div class="form-entry">
+            <input id="password-confirm" class="text-input" type="password"  placeholder="تکرار گذرواژه" required >
+            <div>
+                <span class="error" id="password-confirm-error"></span>
+            </div>
+        </div>
+
+        <div class="form-entry">
+            <button type="submit">ثبت نام</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

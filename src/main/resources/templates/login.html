@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>ورود</title>
+    <link rel="stylesheet" href="/css/normalize.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+
+<div id="form-container">
+
+    <h3>ورود</h3>
+
+    <div class="error" th:if="${param.error}">
+        نام کاربری یا گذرواژه نامعتبر است.
+    </div>
+
+    <form action="#" th:action="@{/login}" method="post">
+        <div class="form-entry">
+            <input class="text-input" type="text" name="username" placeholder="نام کاربری" required autofocus>
+        </div>
+
+        <div class="form-entry">
+            <input class="text-input" type="password" name="password" placeholder="گذرواژه" required>
+        </div>
+        <div class="form-entry">
+            <button type="submit">ورود</button>
+        </div>
+    </form>
+
+    <a id="registration-link" th:href="@{/register}">ثبت نام</a>
+
+</div>
+</body>
+</html>
