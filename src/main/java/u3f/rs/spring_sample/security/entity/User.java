@@ -144,6 +144,6 @@ public class User implements UserDetails {
                 "\t\n, enabled=" + enabled +
                 "\t\n, creationTime=" + creationTime +
                 "\t\n, authorities=" + authorities +
-                '}';
+                "}\n";
     }
 }
