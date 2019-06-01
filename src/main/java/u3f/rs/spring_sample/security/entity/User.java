@@ -136,14 +136,14 @@ public class User implements UserDetails {
 
     @Override
     public String toString() {
-        return "User{" +
-                "\nid=" + id +
-                "\n, username='" + username + '\'' +
-                "\n, email='" + email + '\'' +
-                "\n, password='" + password + '\'' +
-                "\n, enabled=" + enabled +
-                "\n, creationTime=" + creationTime +
-                "\n, authorities=" + authorities +
+        return "\nUser{" +
+                "\t\nid=" + id +
+                "\t\n, username='" + username + '\'' +
+                "\t\n, email='" + email + '\'' +
+                "\t\n, password='" + password + '\'' +
+                "\t\n, enabled=" + enabled +
+                "\t\n, creationTime=" + creationTime +
+                "\t\n, authorities=" + authorities +
                 '}';
     }
 }
