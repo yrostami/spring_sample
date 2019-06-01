@@ -33,10 +33,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/").hasAuthority("USER")
+                .antMatchers("/").hasRole("USER")
                 .antMatchers("/css/**","/font/**","/js/**","/image/**").permitAll()
                 .antMatchers("/register").permitAll()
-                .and().formLogin().loginPage("/login").successForwardUrl("/").permitAll()
+                .and().formLogin().loginPage("/login").defaultSuccessUrl("/")
                 .and().logout().logoutSuccessUrl("/login");
     }
 }
